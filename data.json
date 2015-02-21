@@ -1,0 +1,19 @@
+{
+	"playlist": {
+		"current": 0,
+		"songs": [
+			{
+				"artist": "Avenged Sevenfold",
+				"title": "Nightmare"
+			},
+			{
+				"artist": "Avenged Sevenfold",
+				"title": "Dear God"
+			},
+			{
+				"artist": "Simple Plan",
+				"title": "I Can Wait Forever"
+			}
+		]
+	}
+}
