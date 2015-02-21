@@ -22,7 +22,6 @@ module.exports = class FirebaseSync extends EventEmitter2
 	playNext: (index) ->
 
 		# Prevent multiple equal modifications from various clients
-		# Maybe Firebase prevents this modifications in the first place automatically?
 		return if @playlist.current is index + 1
 
 		@playlistModel.transaction (playlist) =>
