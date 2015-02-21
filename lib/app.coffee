@@ -31,6 +31,8 @@ manager.on 'playlist:update', (playlist) ->
 			return manager.playNext(playlist.current)
 
 		currentSong = playlist.currentSong
+
+		currentPlayer?.stop()
 		currentPlayer = player
 
 		currentPlayer.on 'skew', (skew, maximumSkew) ->
