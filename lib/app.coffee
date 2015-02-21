@@ -12,6 +12,7 @@ currentSong = {}
 
 manager.on 'playlist:update', (playlist) ->
 	console.log('PLAYLIST UPDATE ==============================')
+	console.log("PLAY START: #{util.getPlayStartInformation(playlist.playStart)}")
 	console.log(util.playlistToString(playlist))
 
 	if _.isEqual(playlist.currentSong, currentSong)
