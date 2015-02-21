@@ -84,14 +84,16 @@ The time given for initial playback to be setup, preventing the track from start
 
 MuSync currently works with [Grooveshark](http://grooveshark.com), but you can easily change the backend to get the audio streams from another sources.
 
-To do this, you must create a CoffeeScript file within `lib/backend` that exposes a `search()` function that returns a readable stream to the callback:
+To do this, you must create an NPM package called `musync-backend-<your backend name>` that exposes a `search()` function that returns a readable stream to the callback:
 
 #### search(Object song, Function callback)
 
 - `song` is an object containing an `artist` and a `title`.
 - `callback` is a function callback with either an error, or an audio stream.
 
-After you have your backend setup, you can change the `BACKEND` environment variable to match your backend CoffeeScript file name, without the `.coffee` extension.
+After you have your backend setup, you can change the `BACKEND` environment variable to match your backend name, without the `musync-backend-` prefix.
+
+Take a look at the default [musync-backend-grooveshark](https://github.com/resin-io/musync-backend-grooveshark) for an example.
 
 Caveats
 -------
