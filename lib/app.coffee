@@ -25,7 +25,7 @@ manager.on 'playlist:update', (playlist) ->
 			console.info('Nothing to play')
 			return
 
-	Player.createFromSong playlist.currentSong, backend, (error, player) ->
+	Player.createFromSong playlist.currentSong, backend.get(settings.backend), (error, player) ->
 
 		if error?
 			console.error('Error loading current song, skipping.')
