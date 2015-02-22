@@ -28,7 +28,7 @@ class Player extends EventEmitter2
 	play: (date = new Date()) ->
 		@speaker = new Speaker(@format)
 
-		return @decoder
+		@decoder
 			.pipe audioCorrection.skew
 				start: date
 				format: @format
@@ -37,16 +37,18 @@ class Player extends EventEmitter2
 					@emit('skew', skew, maximumSkew)
 			.pipe(@speaker)
 
+		@emit('play')
+
 	pause: ->
 		@decoder?.unpipe()
 		@speaker?.end()
 		@emit('pause')
 
 	stop: ->
-		@removeAllListeners()
 		@decoder?.unpipe()
 		@speaker?.end()
 		@emit('stop')
+		@removeAllListeners()
 
 	onFinish: ->
 		@decoder?.unpipe()
@@ -54,6 +56,9 @@ class Player extends EventEmitter2
 		@emit('finish')
 
 Player.createFromSong = (song, backend, callback) ->
+
+	if not song?
+		throw new Error('Missing song argument')
 
 	if not backend?
 		throw new Error('Missing backend argument')
@@ -65,12 +70,12 @@ Player.createFromSong = (song, backend, callback) ->
 		throw new Error('Invalid backend argument: search is not a function')
 
 	backend.search song, (error, stream) ->
-		return callback(error) if error?
+		return callback?(error) if error?
 
 		decoder = new Lame.Decoder()
 		stream.pipe(decoder)
 		decoder.on 'format', (format) ->
 			player = new Player(stream, decoder, format)
-			return callback(null, player)
+			return callback?(null, player)
 
 module.exports = Player
