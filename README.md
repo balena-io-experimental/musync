@@ -48,11 +48,12 @@ When the MuSync clients receive a song to play, they search for that song in [Gr
 
 MuSync includes an audio skew correction mechanism to ensure the song is played in sync between all your clients.
 
-
 Customisation
 -------------
 
 You can customise the following aspects of MuSync with their corresponding environment variables. 
+
+You are highly encouraged to specifically tweak `GRACE` and `SETUP_GRACE` to match your internet connection capabilities.
 
 ### MAXIMUM_SKEW
 
