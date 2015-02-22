@@ -111,6 +111,11 @@ Run the test suite by doing:
 $ gulp test
 ```
 
+TODO
+----
+
+- Improve unit testing in certain parts of the application.
+
 Contribute
 ----------
 
