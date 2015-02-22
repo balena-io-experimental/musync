@@ -2,7 +2,6 @@ MuSync
 ------
 
 [![dependencies](https://david-dm.org/resin-io/musync.png)](https://david-dm.org/resin-io/musync.png)
-[![Build Status](https://travis-ci.org/resin-io/musync.svg?branch=master)](https://travis-ci.org/resin-io/musync)
 
 Play your favourite music in sync with your Raspberry Pis.
 
