@@ -1,11 +1,11 @@
 _ = require('lodash')
-FirebaseSync = require('./sync/firebase')
+Firebase = require('./firebase')
 Player = require('./player')
 settings = require('./settings')
 backend = require('./backend')
 util = require('./util')
 
-manager = new FirebaseSync(settings.firebaseUrl)
+manager = new Firebase(settings.firebaseUrl)
 
 currentPlayer = null
 currentSong = {}

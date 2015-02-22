@@ -1,6 +1,6 @@
 Firebase = require('firebase')
 EventEmitter2 = require('eventemitter2').EventEmitter2
-settings = require('../settings')
+settings = require('./settings')
 
 module.exports = class FirebaseSync extends EventEmitter2
 
