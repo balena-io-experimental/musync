@@ -16,7 +16,7 @@ You'll need:
 - Speakers (one for each Pi).
 - Wifi dongles (one for each Pi).
 - A [Firebase](https://www.firebase.com) application.
-- The MuSync Frontend application.
+- The [MuSync Frontend application](https://github.com/jviotti/musync-frontend).
 
 Installation
 ------------
@@ -35,14 +35,14 @@ $ git clone https://github.com/resin-io/musync.git
 $ git push resin
 ```
 
-- Make sure you also install the MuSync Frontend to control your devices.
+- Make sure you also install the [MuSync Frontend](https://github.com/jviotti/musync-frontend) to control your devices.
 
 How it works
 ------------
 
 [Firebase](https://www.firebase.com) syncs the list of songs to play, which one is the current song, and the start time for the current song (in milliseconds).
 
-This data is modified by the MuSync frontend and propagated to the MuSync clients to play accordingly.
+This data is modified by the [MuSync Frontend](https://github.com/jviotti/musync-frontend) and propagated to the MuSync clients to play accordingly.
 
 When the MuSync clients receive a song to play, they search for that song in [Grooveshark](http://grooveshark.com) (see the Customisation section to learn how to change the backend) and play it accordingly.
 
@@ -99,7 +99,7 @@ Caveats
 -------
 
 - A good and stable internet connection is required for the application to work reliably.
-- The application requires all clients, and the frontend to run within the same timezone.
+- The application requires all clients and the frontend to run within the same timezone.
 
 Tests
 -----
