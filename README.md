@@ -91,7 +91,7 @@ To do this, you must create an NPM package called `musync-backend-<your backend 
 - `song` is an object containing an `artist` and a `title`.
 - `callback` is a function callback with either an error, or an audio stream.
 
-After you have your backend setup, you can change the `BACKEND` environment variable to match your backend name, without the `musync-backend-` prefix.
+After you have your backend module installed to your MuSync application, you can change the `BACKEND` environment variable to match your backend name, without the `musync-backend-` prefix.
 
 Take a look at the default [musync-backend-grooveshark](https://github.com/resin-io/musync-backend-grooveshark) for an example.
 
