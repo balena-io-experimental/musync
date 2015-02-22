@@ -1,4 +1,4 @@
-musync
+MuSync
 ------
 
 [![dependencies](https://david-dm.org/resin-io/musync.png)](https://david-dm.org/resin-io/musync.png)
