@@ -11,6 +11,11 @@ module.exports = class FirebaseSync extends EventEmitter2
 		@playlistModel = @firebase.child('playlist')
 		@playlistModel.on 'value', (snapshot) =>
 			@playlist = snapshot.val()
+
+			if not @playlist?
+				console.warn('No data in Firebase')
+				return
+
 			@playlist.currentSong = @playlist.songs[@playlist.current]
 
 			if @playlist.playStart?
