@@ -20,30 +20,36 @@ You'll need:
 Installation
 ------------
 
-- Register to [Resin.io](https://resin.io), create a Raspberry Pi application, and initialize all your MuSync clients with resin.
+- Register to [Resin.io](https://resin.io), create a Raspberry Pi application, and initialize all your MuSync clients with resin.To do this follow our comprehensive [getting started guide](http://docs.resin.io/#/pages/installing/gettingStarted.md).
+
 - Clone this project:
 
 ```sh
 $ git clone https://github.com/resin-io/musync.git
 ```
 
-- Add your resin application's git remote to the musync repo.
+- Add your resin application's git remote to the musync repo. You can find this in the top right of your resin.io application dashboard.
+
+```sh
+$ git remote add resin git@git.resin.io:USERNAME/APPNAME.git
+```
+
 - Push to resin.io:
 
 ```sh
 $ git push resin
 ```
 
-- Make sure you also install the [MuSync Frontend](https://github.com/jviotti/musync-frontend) to control your devices.
+- While your code is downloading on your device install the [MuSync Frontend](https://github.com/jviotti/musync-frontend) which acts as the client that controls controls and updates the playlist on firebase and subsequently what plays on the devices. 
 
 How it works
 ------------
 
-[Firebase](https://www.firebase.com) syncs the list of songs to play, which one is the current song, and the start time for the current song (in milliseconds).
+![MuSync Frontend Screenshot](https://raw.githubusercontent.com/jviotti/musync-frontend/master/screenshots/screenshot.png)
 
-This data is modified by the [MuSync Frontend](https://github.com/jviotti/musync-frontend) and propagated to the MuSync clients to play accordingly.
+The [MuSync Frontend](https://github.com/jviotti/musync-frontend) allows users to add a song by artist and song name, this is is synced to the [Firebase](https://www.firebase.com) datastore. The datastore holds the list of songs to play, which one is the current song, and the start time for the current song (in milliseconds).
 
-When the MuSync clients receive a song to play, they search for that song in [Grooveshark](http://grooveshark.com) (see the Customisation section to learn how to change the backend) and play it accordingly.
+Each devices watches the firebase datastore. When the MuSync clients receive a song to play, they search for that song in [Grooveshark](http://grooveshark.com) (see the Customisation section to learn how to change the backend) and play it accordingly.
 
 MuSync includes an audio skew correction mechanism to ensure the song is played in sync between all your clients.
 
@@ -52,7 +58,7 @@ Customisation
 
 You can customise the following aspects of MuSync with their corresponding environment variables. 
 
-You are highly encouraged to specifically tweak `GRACE` and `SETUP_GRACE` to match your internet connection capabilities.
+You are highly encouraged to specifically tweak `GRACE` and `SETUP_GRACE` to match your internet connection capabilities. The defaults are based on a fairly slow internet speed (less than 10mb/s). If you have a faster connection, decrease the values for improved performance. 
 
 ### MAXIMUM_SKEW
 
